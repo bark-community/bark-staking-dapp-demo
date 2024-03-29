@@ -20,27 +20,7 @@ To calculate the Annual Percentage Yield (APY) for staking in the BARK Staking d
 
 Let's say you stake 1,000,000 BARK tokens for a year with an expected annual reward rate of 20% (compounded monthly). We'll use the following formula to calculate APY:
 
-\[ APY = \left(1 + \frac{r}{n}\right)^{n} - 1 \]
-
-Where:
-- \( r \) is the annual interest rate (in decimal form).
-- \( n \) is the number of times the interest is compounded per year.
-
-Given:
-- \( r = 0.20 \) (20% annual interest rate)
-- \( n = 12 \) (compounded monthly)
-
-\[ APY = \left(1 + \frac{0.20}{12}\right)^{12} - 1 \]
-
-\[ APY = \left(1 + \frac{0.0167}{12}\right)^{12} - 1 \]
-
-\[ APY = (1.001389)^{12} - 1 \]
-
-\[ APY ≈ 1.0212 - 1 \]
-
-\[ APY ≈ 0.0212 \]
-
-\[ APY ≈ 2.12\% \]
+![APY Calculation](https://github.com/bark-community/bark-staking-dapp/main/assets/apy.png)
 
 Therefore, the Annual Percentage Yield (APY) for staking 1,000,000 BARK tokens for a year with an expected annual reward rate of 20% (compounded monthly) is approximately 2.12%.
 
