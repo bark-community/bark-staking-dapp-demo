@@ -1,0 +1,143 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: hsl(0, 0%, 96%) url('main-bg.png') center/cover no-repeat, url('bg.svg') center/cover no-repeat; /* Combined background properties */
+  color: #333; /* Default text color */
+}
+
+/* Header Styles */
+.header {
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Increase header padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  max-width: 100px; /* Set maximum width for logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.header-right button {
+  background-color: #000; /* Black button color */
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px; /* Increase button padding */
+  border-radius: 10px; /* Increased border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+.header-right button:hover {
+  background-color: #222; /* Darken button color on hover */
+  transform: translateY(-2px); /* Move button slightly up */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Info Section Styles */
+.info-section {
+  margin: auto;
+  width: 90%;
+  padding: 20px; /* Increase padding */
+  color: #a7a7a7;
+  text-align: center; /* Center align text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle box-shadow */
+}
+
+/* APR Info Section Styles */
+.apr-text {
+  font-size: 24px; /* Adjust font size as needed */
+}
+
+.infoContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow flex items to wrap */
+  justify-content: center; /* Center items horizontally */
+}
+
+.infoLeft,
+.infoRight {
+  width: 100%; /* Take full width on smaller screens */
+  margin-bottom: 10px; /* Add space between items */
+}
+
+/* Main Content Styles */
+.main {
+  max-width: 1000px;
+  margin: 40px auto; /* Center content */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff; /* White background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.deposit-section,
+.deposit-button,
+.claimBtn {
+  margin: 20px auto; /* Add margin for spacing */
+}
+
+.deposit-button button,
+.claimBtn button {
+  width: calc(50% - 20px); /* Make buttons take 50% width with spacing */
+  padding: 14px; /* Adjust padding */
+  border-radius: 10px; /* Increased border radius */
+  background-color: #000; /* Black button color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+  margin: 10px; /* Add margin */
+}
+
+.claimBtn button {
+  width: 100%; /* Take full width */
+}
+
+.deposit-button button:hover,
+.claimBtn button:hover {
+  background-color: #222; /* Darken button color on hover */
+}
+
+.stakedAmount-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add space between items */
+}
+
+.stakedAmount-input input {
+  width: 100%; /* Full width input field */
+  max-width: 970px; /* Limit width for smaller screens */
+  padding: 12px; /* Adjust padding */
+  border-radius: 10px; /* Increased border radius */
+  border: 1px solid #ccc; /* Light border */
+}
+
+.stakeBtn,
+.unstakeBtn {
+  margin: 20px auto; /* Add margin for spacing */
+}
+
+.deposit-button button:disabled {
+  cursor: not-allowed;
+}
+
+.deposit-button button:hover:not(:disabled) {
+  background-color: #333; /* Darken button color on hover */
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  color: #777; /* Lighter text color */
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to right, #f0f0f0, #ffffff); /* Apply gradient background */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
