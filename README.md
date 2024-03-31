@@ -1,3 +1,5 @@
+[Header image](https://github.com/bark-community/bark-staking-dapp/blob/main/github/ui-screenshot.png)
+
 # BARK Staking dApp Demo
 
 **A decentralized application for staking BARK tokens and earning rewards**
@@ -6,7 +8,7 @@
 
 The BARK Staking dApp (Proof of Concept) is a decentralized application built on the Solana blockchain that empowers users to stake their cryptocurrency tokens and earn rewards. With a user-friendly interface, it facilitates seamless staking, transparent reward tracking, and secure transaction management.
 
-## Features
+## Features:
 
 - **User Authentication**: Users can create accounts or log in using existing credentials, ensuring secure access to the dApp.
 - **Wallet Integration**: Seamlessly connect user accounts to their Solana wallets, enabling convenient transactions and account management.
@@ -24,9 +26,8 @@ The BARK Staking dApp (Proof of Concept) is a decentralized application built on
 - **BARK Staking Program CA**:
   - **Public Key**: BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF
 
-## SOLANA TOKEN 2022 PROGRAM ID
-
-- **CA**: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+- **Solana Token Extension**:
+  - **SPL 2022 Program ID**: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
 
 ## Annual Percentage Yield (APY) Calculation
 
@@ -40,7 +41,7 @@ Let's say you stake 1,000,000 BARK tokens for a year with an expected annual rew
 
 Therefore, the Annual Percentage Yield (APY) for staking 1,000,000 BARK tokens for a year with an expected annual reward rate of 20% (compounded monthly) is approximately 2.12%.
 
-## Technology Stack
+## Tech Stack
 
 - **React.js**: Frontend development framework for building the user interface.
 - **User Account-based Wallet Connector**: Integration with user account-based wallet connectors for secure transactions and user authentication.
@@ -80,11 +81,7 @@ Contributions to the BARK Staking dApp are welcome! Please fork the repository, 
   
 ## Documentation
 
-[Documentation](): BARK Staking dApp Technical Documentation
-
-## License
-
- [LICENSE](LICENSE)
+[Documentation](https://): BARK Staking dApp Technical Documentation
 
 ## Acknowledgements
 
@@ -93,3 +90,8 @@ Contributions to the BARK Staking dApp are welcome! Please fork the repository, 
 - [Chakra UI](https://chakra-ui.com/): Component library for React applications.
 - [Anchor Framework](https://project-serum.github.io/anchor/): Framework for building Solana smart contracts and applications.
 - [Web3.js](https://web3js.readthedocs.io/en/v1.3.4/): Ethereum JavaScript API for interacting with the Ethereum blockchain.
+- [Wallet Adapter](https://github.com/anza-xyz/wallet-adapter): Solana Wallet Adapter.
+
+## License
+
+ [LICENSE](LICENSE)

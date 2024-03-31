@@ -7,12 +7,12 @@ const TransferToken = () => {
   const wallet = useWallet();
   const [amount, setAmount] = useState('');
 
-  const recipientAddress = '3RSJZNvEEm6LiU664df4QohqeygqQztekPRnYCwaDBD5'; // Set recipient address
+  const recipientAddress = 'BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF';
 
   const transferTokens = async () => {
     try {
       const connection = new Connection('https://api.devnet.solana.com', 'confirmed');
-      const token = new Token(connection, new PublicKey('EbT1gZhuSftB2kKkXFt9x2RUkzhV9yDsjgpA759xAQbZ'), new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'), wallet.publicKey);
+      const token = new Token(connection, new PublicKey('BarkJCMP9hjDVW11EaRD6HkRDEU5qd2ovNGXdjgzZAj1'), new PublicKey('TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'), wallet.publicKey);
 
       const senderTokenAccount = await token.getOrCreateAssociatedAccountInfo(wallet.publicKey);
       const receiverTokenAccount = await token.getOrCreateAssociatedAccountInfo(new PublicKey(recipientAddress));
@@ -20,7 +20,7 @@ const TransferToken = () => {
       const tx = new Transaction()
         .add(
           Token.createTransferInstruction(
-            new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'),
+            new PublicKey('TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'),
             senderTokenAccount.address,
             receiverTokenAccount.address,
             wallet.publicKey,
@@ -35,13 +35,13 @@ const TransferToken = () => {
 
       console.log('Transaction ID:', txid);
     } catch (error) {
-      console.error('Error transferring tokens:', error);
+      console.error('Error transferring BARK tokens:', error);
     }
   };
 
   return (
     <div>
-      <h2>Transfer Tokens</h2>
+      <h2>Transfer BARK Tokens</h2>
       <label>Amount:</label>
       <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} />
       <button onClick={transferTokens}>Transfer</button>
