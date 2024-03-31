@@ -1,12 +1,10 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import { Connection, PublicKey, SystemProgram, Token, Transaction } from '@solana/web3.js';
 import { TOKEN_2022_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, AccountLayout } from '@solana/spl-token';
 import './App.css';
 import logo from './bark-logo-dark.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { background } from './assets/main-pg-3d.png';
+import { faTwitter, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const App = () => {
   // State variables
@@ -276,6 +274,14 @@ const App = () => {
         </div>
       </main>
       <footer className="footer white-400">
+        <div>
+          <p>Follow Us</p>
+          <div className="social-icons">
+            <FontAwesomeIcon icon={faTwitter} className="social-icon" />
+            <FontAwesomeIcon icon={faDiscord} className="social-icon" />
+            <FontAwesomeIcon icon={faGithub} className="social-icon" />
+          </div>
+        </div>
         <p>© 2024 BARK Protocol. All rights reserved.</p>
       </footer>
       {loading && <div className="overlay">Loading...</div>}
