@@ -4,7 +4,7 @@ import { TOKEN_2022_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, AccountLayout } fro
 import './App.css';
 import logo from './bark-logo-dark.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faTelegram, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const App = () => {
   // State variables
@@ -226,10 +226,13 @@ const App = () => {
 
   return (
     <div>
+      {/* Header */}
       <header className="header">
+        {/* Logo */}
         <div className="header-left">
           <img src={logo} alt="Bark Logo" className="logo" />
         </div>
+        {/* Connect/Disconnect Wallet Button */}
         <div className="header-right">
           {isConnected ? (
             <button onClick={disconnectWallet} className="white-600">Disconnect Wallet</button>
@@ -238,24 +241,33 @@ const App = () => {
           )}
         </div>
       </header>
+
+      {/* Main Content */}
       <main className="main">
+        {/* Deposit Section */}
         <div className="deposit-section">
+          {/* Staked Amount Input */}
           <div className="stakedAmount-input">
             <input type="number" placeholder='0' value={stakedAmount} onChange={(e) => setStakedAmount(e.target.value)} />
           </div>
+          {/* Recipient Address Input */}
           <div className="recipient-address">
             <label htmlFor="recipient">Recipient Address:</label>
             <input type="text" id="recipient" value={recipientAddress} onChange={(e) => setRecipientAddress(e.target.value)} />
           </div>
         </div>
+
+        {/* Stake and Unstake Buttons */}
         <div className="button-container">
-         <button className='stakeBtn' onClick={stakeToken} disabled={!isConnected || loading}>
-          Stake
+          <button className='stakeBtn' onClick={stakeToken} disabled={!isConnected || loading}>
+            Stake
           </button>
           <button className='unstakeBtn' onClick={unstakeToken} disabled={!isConnected || loading}>
-          Unstake
+            Unstake
           </button>
         </div>
+
+        {/* Information Section */}
         <div className="info-section">
           <div className="infoContainer">
             <div className="infoLeft">
@@ -269,22 +281,41 @@ const App = () => {
             </div>
           </div>
         </div>
+
+        {/* Claim Button */}
         <div className='claimBtn'>
           <button onClick={handleClaim} disabled={!isConnected || loading} className="dark">Claim Your $BARK Tokens</button>
         </div>
       </main>
+
+      {/* Footer */}
       <footer className="footer white-400">
         <div>
+          {/* Social Media Icons */}
           <p>Follow Us</p>
           <div className="social-icons">
-            <FontAwesomeIcon icon={faTwitter} className="social-icon" />
-            <FontAwesomeIcon icon={faDiscord} className="social-icon" />
-            <FontAwesomeIcon icon={faGithub} className="social-icon" />
+            <a href="https://twitter.com/bark_protocol" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTwitter} className="social-icon" />
+            </a>
+            <a href="https://discord.gg/QY9NvRYz" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faDiscord} className="social-icon" />
+            </a>
+            <a href="https://t.me/+EnczyzzKS_k2NmQ0" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTelegram} className="social-icon" />
+            </a>
+            <a href="https://github.com/bark-community" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faGithub} className="social-icon" />
+            </a>
           </div>
         </div>
+        {/* Footer Text */}
         <p>© 2024 BARK Protocol. All rights reserved.</p>
       </footer>
+
+      {/* Loading Overlay */}
       {loading && <div className="overlay">Loading...</div>}
+
+      {/* Error Overlay */}
       {error && <div className="overlay error">{error}</div>}
     </div>
   );

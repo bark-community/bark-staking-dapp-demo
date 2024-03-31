@@ -175,22 +175,16 @@ body {
 
 /* Social Media Icons */
 .social-icons {
-  margin-top: 20px; /* Space between footer text and icons */
+  margin-top: 20px;
 }
 
 .social-icon {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 20px;
-  color: #ccc;
+  margin-right: 10px; /* Adjust margin as needed */
+  font-size: 16px;
+  color: #d8d8d8;
   transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-  color: #333; /* Darken icon color on hover */
-}
-
-/* Empty Space Below Footer */
-.footer-space {
-  height: 100px; /* Adjust height as needed */
+  color: #777; /* Lighter icon color on hover */
 }
