@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Connection, PublicKey, Token, Transaction } from '@solana/web3.js';
 import { TOKEN_2022_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, AccountLayout } from '@solana/spl-token';
-import logo from './bark-logo-dark.svg';
+import logo from './bark-staking-light.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faTelegram, faDiscord, faGithub, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faDiscord, faMedium, faTelegramPlane, faGithub } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
 
 const App = () => {
@@ -14,7 +14,9 @@ const App = () => {
   const [tokenBalance, setTokenBalance] = useState(0);
   const [solBalance, setSolBalance] = useState(0);
   const [tokenMint, setTokenMint] = useState('BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF');
-  const [recipientAddress, setRecipientAddress] = useState('');
+  const TOKEN_2022_PROGRAM_ID = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
+  const BARK_STAKING_PROGRAM_ID = '';
+  const [recipientAddress, setRecipientAddress] = useState('BARKvK3zbiy9DTzhAjrv7GgPuiJ3eHQ3QuvRvvfNBhKd');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const apr = 20;
@@ -38,7 +40,7 @@ const App = () => {
         setWalletAddress(solana.publicKey.toString());
         getTokenBalance();
       } else {
-        setError('Solana Phantom wallet extension not found!');
+        setError('Solana wallet extension not found!');
       }
     } catch (error) {
       setError('Error connecting to wallet: ' + error.message);
@@ -70,7 +72,7 @@ const App = () => {
         const publicKey = new PublicKey(walletAddress);
         const senderAssociatedTokenAccount = await Token.getAssociatedTokenAddress(
           ASSOCIATED_TOKEN_PROGRAM_ID,
-          TOKEN_2022_PROGRAM_ID,
+          TOKEN_PROGRAM_ID,
           new PublicKey(tokenMint),
           publicKey
         );
@@ -159,7 +161,7 @@ const App = () => {
     <div>
       <header className="header">
         <div className="header-left">
-          <img src={logo} alt="Bark Logo" className="logo" />
+          <img src={logo} alt="Bark Logo" className="logo" /> {/* Adding the logo */}
         </div>
         <div className="header-right">
           {isConnected ? (
@@ -211,11 +213,14 @@ const App = () => {
             <a href="https://twitter.com/bark_protocol" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTwitter} className="social-icon" />
             </a>
-            <a href="https://discord.gg/QY9NvRYz" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/H9en8eHzn2" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faDiscord} className="social-icon" />
             </a>
+            <a href="https://medium.com/@barkprotocol" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faMedium} className="social-icon" />
+            </a>
             <a href="https://t.me/+EnczyzzKS_k2NmQ0" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTelegram} className="social-icon" />
+              <FontAwesomeIcon icon={faTelegramPlane} className="social-icon" />
             </a>
             <a href="https://github.com/bark-community" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faGithub} className="social-icon" />
