@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Connection, PublicKey, SystemProgram, Token, Transaction } from '@solana/web3.js';
+import { Connection, PublicKey, Token, Transaction } from '@solana/web3.js';
 import { TOKEN_2022_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, AccountLayout } from '@solana/spl-token';
-import './App.css';
 import logo from './bark-logo-dark.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faTelegram, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faSpinner, faTelegram, faDiscord, faGithub, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import './App.css';
 
 const App = () => {
   // State variables
@@ -13,7 +13,7 @@ const App = () => {
   const [stakedAmount, setStakedAmount] = useState('');
   const [tokenBalance, setTokenBalance] = useState(0);
   const [solBalance, setSolBalance] = useState(0);
-  const [tokenMint, setTokenMint] = useState('BARKqD1TXydxHLwgptihguwUKrXRzaMwvYY9Yz6UGrZ3');
+  const [tokenMint, setTokenMint] = useState('BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF');
   const [recipientAddress, setRecipientAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,9 +21,9 @@ const App = () => {
   const solanaRpcUrl = "https://api.devnet.solana.com";
   const connection = new Connection(solanaRpcUrl);
 
-  // Fetch BARK token and SOL balances on component mount and when wallet address changes
+  // Fetch token and SOL balances on component mount and when wallet address changes
   useEffect(() => {
-    setTokenMint('BARKqD1TXydxHLwgptihguwUKrXRzaMwvYY9Yz6UGrZ3');
+    setTokenMint('BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF');
     getTokenBalance();
     getSolBalance();
   }, [walletAddress, tokenMint]);
@@ -38,7 +38,7 @@ const App = () => {
         setWalletAddress(solana.publicKey.toString());
         getTokenBalance();
       } else {
-        setError('Solana wallet extension not found!');
+        setError('Solana Phantom wallet extension not found!');
       }
     } catch (error) {
       setError('Error connecting to wallet: ' + error.message);
@@ -109,104 +109,35 @@ const App = () => {
     }
   };
 
-  // Select staked cryptocurrency function
-  // Logic here.
-
   // Stake token function
   const stakeToken = async () => {
     setLoading(true);
     try {
-      // Validate staked amount
-      if (parseFloat(stakedAmount) <= 0) {
-        setError('Please enter a valid amount to stake');
-        return;
-      }
-
-      // Check if recipient address is valid
-      if (!PublicKey.isOnCurve(recipientAddress, 'ed25519') || recipientAddress.length !== 44) {
-        setError('Please enter a valid recipient address');
-        return;
-      }
-
-      // Convert staked amount to lamports
-      const lamports = parseFloat(stakedAmount) * 10 ** 9;
-
-      // Stake BARK tokens
-      if (tokenMint === 'BARKhLzdWbyZiP3LNoD9boy7MrAy4CVXEToDyYGeEBKF') {
-        const publicKey = new PublicKey(walletAddress);
-        const recipientPublicKey = new PublicKey(recipientAddress);
-        const transaction = new Transaction().add(
-          Token.createTransferInstruction(TOKEN_2022_PROGRAM_ID, publicKey, recipientPublicKey, publicKey, [], lamports)
-        );
-        const signature = await connection.sendTransaction(transaction, [publicKey]);
-      } else { // Stake SOL
-        const publicKey = new PublicKey(walletAddress);
-        const transaction = new Transaction().add(
-          SystemProgram.transfer({
-            fromPubkey: publicKey,
-            toPubkey: recipientAddress,
-            lamports: lamports,
-          })
-        );
-        const signature = await connection.sendTransaction(transaction, [publicKey]);
-      }
-
-      // Update balances after staking
+      const publicKey = new PublicKey(walletAddress);
+      const token = new Token(connection, new PublicKey(tokenMint), TOKEN_2022_PROGRAM_ID, publicKey);
+      const recipientPublicKey = new PublicKey(recipientAddress);
+      const amount = parseFloat(stakedAmount) * 10 ** 9;
+      const transaction = new Transaction().add(
+        Token.createTransferInstruction(TOKEN_2022_PROGRAM_ID, publicKey, recipientPublicKey, publicKey, [], amount)
+      );
+      const signature = await connection.sendTransaction(transaction, [publicKey]);
       await getTokenBalance();
       await getSolBalance();
-      setError(null); // Clear error state
+      setError(null);
     } catch (error) {
-      setError('Error staking tokens: ' + error.message);
+      setError('Error staking BARK token: ' + error.message);
     } finally {
       setLoading(false);
     }
   };
-  
-  // Unstake function
+
+  // Unstake token function
   const unstakeToken = async () => {
     setLoading(true);
     try {
-      if (!isConnected || !walletAddress) {
-        setError('Please connect wallet');
-        return;
-      }
-  
-      // Check if the user has enough BARK tokens staked
-      if (tokenBalance < parseFloat(stakedAmount)) {
-        setError('Insufficient BARK token balance');
-        return;
-      }
-  
-      // Create instructions for unstaking SOL
-      const publicKey = new PublicKey(walletAddress);
-      const solTransaction = new Transaction().add(
-        SystemProgram.transfer({
-          fromPubkey: publicKey,
-          toPubkey: "Your recipient's public key",
-          lamports: "Amount of SOL or BARK to unstake",
-        })
-      );
-  
-      // Create instruction for unstaking BARK tokens
-      const recipientPublicKey = new PublicKey(walletAddress); // Transfer BARK tokens to the user's account
-      const token = new Token(connection, new PublicKey(tokenMint), TOKEN_2022_PROGRAM_ID, publicKey);
-      const amount = parseFloat(stakedAmount) * 10 ** 9;
-      const barkTransaction = new Transaction().add(
-        Token.createTransferInstruction(TOKEN_2022_PROGRAM_ID, publicKey, recipientPublicKey, publicKey, [], amount)
-      );
-  
-      // Combine both transactions into a single transaction
-      const transaction = Transaction.merge([solTransaction, barkTransaction]);
-  
-      // Sign and send the transaction
-      const signature = await connection.sendTransaction(transaction, [publicKey]);
-  
-      // Update balances after unstaking
-      await getTokenBalance();
-      await getSolBalance();
-      setError(null); // Set error to null if unstake is successful
+      // Implement unstake logic
     } catch (error) {
-      setError('Error unstaking BARK tokens: ' + error.message);
+      setError('Error unstaking BARK token: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -226,13 +157,10 @@ const App = () => {
 
   return (
     <div>
-      {/* Header */}
       <header className="header">
-        {/* Logo */}
         <div className="header-left">
           <img src={logo} alt="Bark Logo" className="logo" />
         </div>
-        {/* Connect/Disconnect Wallet Button */}
         <div className="header-right">
           {isConnected ? (
             <button onClick={disconnectWallet} className="white-600">Disconnect Wallet</button>
@@ -241,23 +169,16 @@ const App = () => {
           )}
         </div>
       </header>
-
-      {/* Main Content */}
       <main className="main">
-        {/* Deposit Section */}
         <div className="deposit-section">
-          {/* Staked Amount Input */}
           <div className="stakedAmount-input">
             <input type="number" placeholder='0' value={stakedAmount} onChange={(e) => setStakedAmount(e.target.value)} />
           </div>
-          {/* Recipient Address Input */}
           <div className="recipient-address">
             <label htmlFor="recipient">Recipient Address:</label>
             <input type="text" id="recipient" value={recipientAddress} onChange={(e) => setRecipientAddress(e.target.value)} />
           </div>
         </div>
-
-        {/* Stake and Unstake Buttons */}
         <div className="button-container">
           <button className='stakeBtn' onClick={stakeToken} disabled={!isConnected || loading}>
             Stake
@@ -266,14 +187,12 @@ const App = () => {
             Unstake
           </button>
         </div>
-
-        {/* Information Section */}
         <div className="info-section">
           <div className="infoContainer">
             <div className="infoLeft">
               <p className="white-400"><b>APR: {apr}%</b></p>
-              <p className="white-400"><b>Your Total Stake: {stakedAmount} $BARK</b></p>
-              <p className="white-400"><b>Your Total Earning: {stakedAmount} $BARK</b></p>
+              <p className="white-400"><b>Total Stake: {stakedAmount} $BARK</b></p>
+              <p className="white-400"><b>Total Earning: {stakedAmount} $BARK</b></p>
             </div>
             <div className="infoRight">
               <p className="white-400"><b>SOL Balance: {solBalance.toFixed(2)} SOL</b></p>
@@ -281,17 +200,12 @@ const App = () => {
             </div>
           </div>
         </div>
-
-        {/* Claim Button */}
         <div className='claimBtn'>
-          <button onClick={handleClaim} disabled={!isConnected || loading} className="dark">Claim Your $BARK Tokens</button>
+          <button onClick={handleClaim} disabled={!isConnected || loading} className="dark">Stake Your Tokens</button>
         </div>
       </main>
-
-      {/* Footer */}
       <footer className="footer white-400">
         <div>
-          {/* Social Media Icons */}
           <p>Follow Us</p>
           <div className="social-icons">
             <a href="https://twitter.com/bark_protocol" target="_blank" rel="noopener noreferrer">
@@ -308,15 +222,8 @@ const App = () => {
             </a>
           </div>
         </div>
-        {/* Footer Text */}
         <p>© 2024 BARK Protocol. All rights reserved.</p>
       </footer>
-
-      {/* Loading Overlay */}
-      {loading && <div className="overlay">Loading...</div>}
-
-      {/* Error Overlay */}
-      {error && <div className="overlay error">{error}</div>}
     </div>
   );
 };

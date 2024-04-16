@@ -1,190 +1,190 @@
 /* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: transparent url('bg.png') center/cover no-repeat, url('main-bg.png') center/cover no-repeat; /* Combined background properties removed */
-  color: #333; /* Default text color */
-}
-
-/* Header Styles */
-.header {
-  background: transparent;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* box shadow */
-  padding: 30px; /* Header padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px; /* Header height */
-}
-
-.header-logo {
-  max-width: 100px; /* Set maximum width for logo */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.header-right button {
-  background-color: #333; /* Black button color */
-  color: #ffffff;
-  border: 1;
-  border-color: #d8d8d8;
-  padding: 15px 32px; /* Button padding */
-  border-radius: 8px; /* Border radius */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
-  outline: none; /* Remove default button outline */
-}
-
-.header-right button:hover {
-  background-color: #2222; /* Darken button color on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-}
-
-.header-right button:active {
-  transform: translateY(1px); /* Button press effect */
-}
-
-/* Main Content Styles */
-.main {
-  max-width: 1000px;
-  margin: 80px auto 40px; /* Top and bottom margin */
-  padding: 30px; /* Increase padding */
-  border-radius: 8px;
-  background-color: #ffffff; /* White background */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
-}
-
-.deposit-section,
-.button-container,
-.info-section {
-  margin: 30px auto; /* Add margin for spacing */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: transparent url('bg.png') center/cover no-repeat, url('main-bg.png') center/cover no-repeat; /* Combined background properties removed */
+    color: #333; /* Default text color */
+  }
   
-}
-
-.stakedAmount-input,
-.recipient-address {
-  margin-bottom: 20px;
-}
-
-.stakedAmount-input input,
-.recipient-address input {
-  width: calc(100% - 20px);
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease; /* Add transition for border color */
-}
-
-.stakedAmount-input input:hover,
-.recipient-address input:hover {
-  background-color: #f9f9f9; /* Light background color on hover */
-}
-
-.stakedAmount-input input:focus,
-.recipient-address input:focus {
-  outline: none;
-  border-color: #555; /* Change border color on focus */
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.stakeBtn,
-.unstakeBtn {
-  padding: 15px 30px; /* Adjusted padding */
-  background-color: #333; /* Black button color */
-  color: #ffffff; /* White text color */
-  border: 1;
-  border-color: #d8d8d8;
-  border-radius: 8px; /* Border radius */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
-  outline: none; /* Default button outline */
-  width: 48%; /* Adjust width as needed */
-  padding: 15px; /* Adjust padding as needed */
-  font-size: 14px; /* Adjust font size as needed */
-}
-
-.stakeBtn:hover,
-.unstakeBtn:hover {
-  background-color: #020202; /* Darken button color on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Improved shadow on hover */
-}
-
-/* Info Section Styles */
-.info-section {
-  padding: 20px; /* Padding */
-  border-radius: 8px;
-  color: #6e6e6e;
-  text-align: center; /* Center align text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box-shadow */
-  border: 1px solid #e1e1e1e7;
-}
-
-/* Claim Button Styles */
-.claimBtn {
-  text-align: center;
-}
-
-.claimBtn button {
-  padding: 15px 30px; /* Adjusted padding */
-  width: 100%;
-  background-color: #333; /* Black button color */
-  color: #ffffff; /* White text color */
-  border: 1;
-  border-color: #d8d8d8;
-  border-radius: 8px; /* Border radius */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
-  outline: none; /* Remove default button outline */
-}
-
-.claimBtn button:hover {
-  background-color: #020202; /* Darken button color on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-}
-
-/* Error Message Styles */
-.overlay.error {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 0, 0, 0.864); /* Red background color */
-  border: rgba(195, 0, 0, 0.361);
-  border-width: 0.1px;
-  border-radius: 8px;
-  color: #fffffff8; /* White font color */
-  align-items: center;
-  padding: 20px;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  color: #777; /* Lighter text color */
-  padding: 15px;
-  position: relative; /* Make footer relative */
-  width: 100%;
-  background: linear-gradient(to right, #fefefe, #ffffff); /* Apply gradient background */
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-}
-
-/* Social Media Icons */
-.social-icons {
-  margin-top: 20px;
-}
-
-.social-icon {
-  margin-right: 10px; /* Adjust margin as needed */
-  font-size: 16px;
-  color: #d8d8d8;
-  transition: color 0.3s ease;
-}
-
-.social-icon:hover {
-  color: #777; /* Lighter icon color on hover */
-}
+  /* Header Styles */
+  .header {
+    background: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* box shadow */
+    padding: 30px; /* Header padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px; /* Header height */
+  }
+  
+  .header-logo {
+    max-width: 100px; /* Set maximum width for logo */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .header-right button {
+    background-color: #333; /* Black button color */
+    color: #ffffff;
+    border: 1;
+    border-color: #d8d8d8;
+    padding: 15px 32px; /* Button padding */
+    border-radius: 8px; /* Border radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+    outline: none; /* Remove default button outline */
+  }
+  
+  .header-right button:hover {
+    background-color: #2222; /* Darken button color on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  .header-right button:active {
+    transform: translateY(1px); /* Button press effect */
+  }
+  
+  /* Main Content Styles */
+  .main {
+    max-width: 1000px;
+    margin: 80px auto 40px; /* Top and bottom margin */
+    padding: 30px; /* Increase padding */
+    border-radius: 8px;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
+  }
+  
+  .deposit-section,
+  .button-container,
+  .info-section {
+    margin: 30px auto; /* Add margin for spacing */
+    
+  }
+  
+  .stakedAmount-input,
+  .recipient-address {
+    margin-bottom: 20px;
+  }
+  
+  .stakedAmount-input input,
+  .recipient-address input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease; /* Add transition for border color */
+  }
+  
+  .stakedAmount-input input:hover,
+  .recipient-address input:hover {
+    background-color: #f9f9f9; /* Light background color on hover */
+  }
+  
+  .stakedAmount-input input:focus,
+  .recipient-address input:focus {
+    outline: none;
+    border-color: #555; /* Change border color on focus */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .stakeBtn,
+  .unstakeBtn {
+    padding: 15px 30px; /* Adjusted padding */
+    background-color: #333; /* Black button color */
+    color: #ffffff; /* White text color */
+    border: 1;
+    border-color: #d8d8d8;
+    border-radius: 8px; /* Border radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+    outline: none; /* Default button outline */
+    width: 48%; /* Adjust width as needed */
+    padding: 15px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+  }
+  
+  .stakeBtn:hover,
+  .unstakeBtn:hover {
+    background-color: #020202; /* Darken button color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Improved shadow on hover */
+  }
+  
+  /* Info Section Styles */
+  .info-section {
+    padding: 20px; /* Padding */
+    border-radius: 8px;
+    color: #6e6e6e;
+    text-align: center; /* Center align text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box-shadow */
+    border: 1px solid #e1e1e1e7;
+  }
+  
+  /* Claim Button Styles */
+  .claimBtn {
+    text-align: center;
+  }
+  
+  .claimBtn button {
+    padding: 15px 30px; /* Adjusted padding */
+    width: 100%;
+    background-color: #333; /* Black button color */
+    color: #ffffff; /* White text color */
+    border: 1;
+    border-color: #d8d8d8;
+    border-radius: 8px; /* Border radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+    outline: none; /* Remove default button outline */
+  }
+  
+  .claimBtn button:hover {
+    background-color: #020202; /* Darken button color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  /* Error Message Styles */
+  .overlay.error {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.864); /* Red background color */
+    border: rgba(195, 0, 0, 0.361);
+    border-width: 0.1px;
+    border-radius: 8px;
+    color: #fffffff8; /* White font color */
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    color: #777; /* Lighter text color */
+    padding: 15px;
+    position: relative; /* Make footer relative */
+    width: 100%;
+    background: linear-gradient(to right, #fefefe, #ffffff); /* Apply gradient background */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  }
+  
+  /* Social Media Icons */
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    margin-right: 10px; /* Adjust margin as needed */
+    font-size: 16px;
+    color: #d8d8d8;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #777; /* Lighter icon color on hover */
+  }
