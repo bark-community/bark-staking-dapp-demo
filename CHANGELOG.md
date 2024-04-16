@@ -1,5 +1,28 @@
 ## Change Log
 
+### v1.0.2
+
+1. **General Styles:** 
+   - Updated the font family to use Google Font "Inter" for better readability.
+   - Adjusted the background color and box shadow of the header for improved contrast and visibility.
+   - Added sticky positioning to the header for better navigation accessibility.
+   - Adjusted padding and margin for better spacing and layout.
+
+2. **Claim Button Styles:** 
+   - Made minor adjustments to the claim button styles for consistency and improved aesthetics.
+
+3. **Error Message Styles:** 
+   - No changes were made to the error message styles.
+
+4. **Navigation Styles:** 
+   - Added navigation styles for better styling and hover effects on links.
+
+5. **Footer Styles:** 
+   - Updated footer styles to use a consistent color scheme and spacing.
+   - Styled the footer as a flex container with column layout for better alignment and spacing.
+   - Adjusted the color and hover effect of footer links for improved visibility and interactivity.
+   - Updated social icon styles for better contrast and hover effect.
+
 ### v1.0.1
 
 - Fine-tuned the UI layout.

@@ -1,7 +1,7 @@
 {
   "name": "bark-staking-dapp",
   "description": "BARK | Staking DApp on BARK tokens, and supporting SPL-20 Standard Tokens",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
