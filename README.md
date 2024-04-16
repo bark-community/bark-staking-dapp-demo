@@ -1,4 +1,4 @@
-[UI Screenshot](https://github.com/bark-community/bark-staking-dapp/blob/dfb70c51a80c06fa5f10d202ca99b5c73cc6cdbf/github/ui-screenshot.png)
+[UI Screenshot](https://github.com/bark-community/bark-staking-dapp/blob/c183619fcaaf2cf5b64990a5892d79ab4a1f67ae/github/ui-screenshot.png))
 
 # BARK Staking dApp Demo
 
